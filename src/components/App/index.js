@@ -17,7 +17,7 @@ import HistoricalDataResult  from '../HistoricalDataResult'
 
 function App() {
   useEffect(() => {
-    document.title = "Historical Data";  
+    document.title = "Home";  
   }, []);
   return (
     <BrowserRouter>
