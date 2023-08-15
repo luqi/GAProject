@@ -1,0 +1,45 @@
+/* ContactBox.css */
+
+.contact-box {
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.contact-box h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.contact-box p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.contact-box form {
+    text-align: left;
+}
+
+.contact-box input,
+.contact-box textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-box button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.contact-box button:hover {
+    background-color: #0056b3;
+}

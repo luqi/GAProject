@@ -1,0 +1,27 @@
+.homepage{
+    background-color: antiquewhite;
+    min-height: 100vh;
+}
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    padding: 20px;
+    border: 1px solid rgb(129, 121, 121);
+    border-radius: 15px;
+}
+
+/* Additional styles for the button appearance */
+.floating-button button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.floating-button button:hover {
+    background-color: #0056b3;
+}
