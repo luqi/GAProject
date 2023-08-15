@@ -3,7 +3,7 @@ name: upload static files to S3 bucket
 on: 
   push:
     branches: 
-     - staging
+     - main
 jobs:
   deploy: 
     runs-on: ubuntu-latest
