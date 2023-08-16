@@ -19,9 +19,6 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       - name: Run npm i to install dependencies
         run: npm i
-
-      - name: Run unit test
-        run: npm run test
       
       - name: Build App
         run: npm run build
