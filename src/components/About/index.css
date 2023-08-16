@@ -6,11 +6,26 @@
     text-align: center;
 }
 .aboutus{
-    margin-top: 200px;
+    margin-top: 20px;
     background-color: white;
     width: fit-content;
     display: flex;
     padding: 30px;
     border: 2px solid black;
     border-radius: 10px;
+    font-size: small;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Add some spacing to the list items */
+li {
+    margin-bottom: 10px;
+}
+
+footer {
+    margin-top: 200px
 }

@@ -1,10 +1,7 @@
-import { NavLink } from "react-router-dom"
 import Container from '@mui/material/Container'
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn'
-import InfoIcon from '@mui/icons-material/Info'
-import ContactsIcon from '@mui/icons-material/Contacts'
-import HistoryIcon from '@mui/icons-material/History';
 import {useEffect} from 'react'
+import Divider from '@mui/material/Divider'
+import HomeMenu from '../HomeMenu'
 import './index.css';
 
 import TableAUD from "./Table"
@@ -15,21 +12,14 @@ const HomePage = () => {
       }, []);
     return (
      <div className="homepage">
-
-     
          <Container maxWidth='md' sx={{ textAlign: 'center'}}>
-             <NavLink to="/currencyconvertor"><MonetizationOnIcon /> Currency Converter</NavLink>
-             {' | '}
-             <NavLink to="/historicaldata"><HistoryIcon /> Historical Data</NavLink>
-             {' | '}
-             <NavLink to="/about" style = {{marginRight: 10}}><InfoIcon /> About</NavLink>
-             {' | '}
-             <NavLink to="/contact" style = {{marginLeft: 10}}><ContactsIcon /> Contact</NavLink>
-             <h1>Welcome to My Website</h1>
+             <HomeMenu />
+             <h1>Global Currency Converter & Money Transfer Solutions</h1>
+             <Divider variant="middle" />
+             <p>Source for currency conversion, sending money and tracking exchange rates</p>
              <TableAUD className="table"></TableAUD>
         </Container>   
         <button className="floating-button" onClick={()=>{
-
                 window.scrollTo({
                     top: 0
                 })

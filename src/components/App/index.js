@@ -15,7 +15,7 @@ import HistoricalData from '../HistoricalData'
 import HistoricalDataResult  from '../HistoricalDataResult'
 
 
-function App() {
+const App = () => {
   useEffect(() => {
     document.title = "Home";  
   }, []);

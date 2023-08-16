@@ -1,15 +1,12 @@
 import {useState, useEffect} from 'react'
-import { Outlet, useNavigate, NavLink} from 'react-router-dom'
+import { Outlet, useNavigate} from 'react-router-dom'
 import Container from '@mui/material/Container'
 import TextField from '@mui/material/TextField'
 import Autocomplete from '@mui/material/Autocomplete'
 import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn'
-import InfoIcon from '@mui/icons-material/Info'
-import ContactsIcon from '@mui/icons-material/Contacts'
-import HomeIcon from '@mui/icons-material/Home'
-import HistoryIcon from '@mui/icons-material/History';
+import HomeMenu from '../HomeMenu'
+import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import './index.css'
 
 const API_KEY = process.env.REACT_APP_Currency_Converter_API_KEY
@@ -50,6 +47,7 @@ const CurrencyConverter = () => {
 
       const handleConverstionSubmit = (e) => {
 		      e.preventDefault()
+          // pass props and state to the result component
 		      navigate(`result/${sourceCurrency}/${targetCurrency}/${amount}`, { state: { sourceCurrencyDetail: sourceCurrencyDetail, targetCurrencyDetail: targetCurrencyDetail}  })
 	    }
 
@@ -59,15 +57,7 @@ const CurrencyConverter = () => {
       <div className='pageContainer'>
         <Container maxWidth='md' style={{ textAlign: 'center',position: "flex", justifyContent: "center", alignItems:"center"}}>
             <Container maxWidth='md' sx={{ textAlign: 'center'}}>
-              <NavLink to="/" style = {{marginRight: 10}}><HomeIcon /> Home</NavLink>
-              {' | '}
-              <NavLink to="/currencyconvertor"><MonetizationOnIcon /> Currency Converter</NavLink>
-              {' | '}
-              <NavLink to="/historicaldata"><HistoryIcon /> Historical Data</NavLink>
-              {' | '}
-              <NavLink to="/about" style = {{marginRight: 10}}><InfoIcon /> About</NavLink>
-              {' | '}
-              <NavLink to="/contact" style = {{marginLeft: 10}}><ContactsIcon /> Contact</NavLink>
+              <HomeMenu />
             </Container>  
             <h1>Currency Converter</h1>
             <form onSubmit={handleConverstionSubmit}>
@@ -76,12 +66,12 @@ const CurrencyConverter = () => {
 					        justifyContent='center'
 					        spacing={2}
                 >
+                    <TextField id="outlined-basic" color="primary" label="From Amount" variant="outlined" value={amount} type ='number' min='1' onChange={(e) => handleInputChange(e)} required/> 
                     <Autocomplete
                         disablePortal
                         id="combo-box-demo"
                         options={sourceCurrencyList}
                         getOptionLabel={(currencyList) => String(currencyList[0])+ ", " + String(currencyList[1])}
-        
                         onChange={(event, newValue) => {
                           if (newValue != null ){
                             setSourceCurrency(newValue[0])
@@ -91,8 +81,8 @@ const CurrencyConverter = () => {
                         // value = {sourceCurrency}
                         sx={{ width: 300 }}
                         renderInput={(params) => <TextField {...params} label="From Currency" />}
-                    />
-                    <TextField id="outlined-basic" color="primary" label="From Amount" variant="outlined" value={amount} type ='number' min='1' onChange={(e) => handleInputChange(e)} required/>
+                        required />
+                    <DoubleArrowIcon />
                     <Autocomplete
                         disablePortal
                         id="combo-box-demo"
@@ -107,7 +97,7 @@ const CurrencyConverter = () => {
                         // value = {targetCurrency}
                         sx={{ width: 300 }}
                         renderInput={(params) => <TextField {...params} label="To Currency" />}
-                    />
+                        required />  
                 <Button type='submit' variant="outlined">Convert</Button>
             </Stack>
             </form>

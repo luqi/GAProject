@@ -21,7 +21,7 @@ const Contact = () => {
       {' | '}
       <NavLink to="/currencyconvertor"><MonetizationOnIcon /> Currency Converter</NavLink>
       {' | '}
-      <NavLink to="/historicaldata"><HistoryIcon /> Historical Data</NavLink>
+      <NavLink to="/historicaldata"><HistoryIcon /> Historic Data</NavLink>
       {' | '}
       <NavLink to="/about" style = {{marginRight: 10}}><InfoIcon /> About</NavLink>
       {' | '}
