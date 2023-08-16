@@ -1,17 +1,15 @@
 import {useState, useEffect} from 'react'
-import { useNavigate, NavLink, Outlet} from 'react-router-dom'
+import { useNavigate, Outlet} from 'react-router-dom'
 import Container from '@mui/material/Container'
 import TextField from '@mui/material/TextField'
 import Autocomplete from '@mui/material/Autocomplete'
 import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn'
-import InfoIcon from '@mui/icons-material/Info'
-import ContactsIcon from '@mui/icons-material/Contacts'
-import HomeIcon from '@mui/icons-material/Home'
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
+import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+import DoubleArrowIcon from '@mui/icons-material/DoubleArrow'
+import HomeMenu from '../HomeMenu'
 // import './index.css'
 
 
@@ -39,7 +37,7 @@ const HistoricalData = () => {
     const [dateHistorical, setDatehistorical] = useState('')
 
       useEffect(() => {
-        document.title = "Historical Data";  
+        document.title = "Historic Data";  
       }, []);
     
 
@@ -54,16 +52,11 @@ const HistoricalData = () => {
       <div className='pageContainer'>
         <Container maxWidth='md' style={{ textAlign: 'center',position: "flex", justifyContent: "center", alignItems:"center"}}>
             <Container maxWidth='md' sx={{ textAlign: 'center'}}>
-              <NavLink to="/" style = {{marginRight: 10}}><HomeIcon /> Home</NavLink>
-              {' | '}
-              <NavLink to="/currencyconvertor"><MonetizationOnIcon /> Currency Converter</NavLink>
-              {' | '}
-              <NavLink to="/about" style = {{marginRight: 10}}><InfoIcon /> About</NavLink>
-              {' | '}
-              <NavLink to="/contact" style = {{marginLeft: 10}}><ContactsIcon /> Contact</NavLink>
+              <HomeMenu/>
             </Container> 
         <Container maxWidth='md' style={{ textAlign: 'center',position: "flex", justifyContent: "center", alignItems:"center"}}>
-            <h1>Historical Exchange Rate</h1>
+            <h1>Historic Exchange Rate</h1>
+            <p>Build a historic rate chart with your chosen base and target currencies</p>
             <form onSubmit={handleHistoricalSubmit}>
                 <Stack direction='row'
 					          alignItems='center'
@@ -85,6 +78,7 @@ const HistoricalData = () => {
                         sx={{ width: 300 }}
                         renderInput={(params) => <TextField {...params} label="From Currency" />}
                     />
+                    <DoubleArrowIcon />
                     <Autocomplete
                         disablePortal
                         id="combo-box-demo"
@@ -100,8 +94,9 @@ const HistoricalData = () => {
                         renderInput={(params) => <TextField {...params} label="To Currency" />}
                     />
                     <LocalizationProvider dateAdapter={AdapterDayjs} required>
-                       <DatePicker format="DD-MM-YYYY" onChange = {(newValue) => setDatehistorical(newValue)}/>
-                       <DatePicker format="DD-MM-YYYY" />
+                       <DatePicker format="DD-MM-YYYY" onChange = {(newValue) => setDatehistorical(newValue)} label='From Date'/>
+                       <DoubleArrowIcon />
+                       <DatePicker format="DD-MM-YYYY" label='From Date'/>
                     </LocalizationProvider>
                 <Button type='submit' variant="outlined">Search</Button>
             </Stack>

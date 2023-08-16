@@ -41,17 +41,31 @@ const TableAUD = () => {
                 console.error('Oops, something went wrong while fetching conversion rates');
             });
     };
+    const currentDate = new Date();
 
+    // Get the current date and time
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth() + 1; // Months are zero-indexed, so adding 1
+    const day = currentDate.getDate();
+    const hours = currentDate.getHours();
+    const minutes = currentDate.getMinutes();
+    const seconds = currentDate.getSeconds();
+
+    // Format the date and time as a string
+    const currentDateTime = `${year}-${month}-${day} ${hours}:${String(minutes).padStart(2, '0')}:${seconds} Sydney/Melbourne`
     return (
         <div className='tableContainer'>
         <Container maxWidth='md' sx={{ textAlign: 'center', paddingTop: '20px', marginBottom:"10px" }}>
-            <h1>AUD to Common Currencies Conversion</h1>
+            <h2>Live Exchange Rates</h2>
+            <p>Last Update: {currentDateTime}</p>
             <TableContainer component={Paper}>
                 <Table>
                     <TableHead>
                         <TableRow>
                             <TableCell>Currency</TableCell>
                             <TableCell>Conversion Rate (1 AUD)</TableCell>
+                            <TableCell>Change</TableCell>
+                            <TableCell>Chart</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -60,6 +74,8 @@ const TableAUD = () => {
                             <TableRow key={index}>
                                 <TableCell>{rate.target_code}</TableCell>
                                 <TableCell>{rate.conversion_rate}</TableCell>
+                                <TableCell></TableCell>
+                                <TableCell></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

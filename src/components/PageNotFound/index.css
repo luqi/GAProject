@@ -5,12 +5,3 @@
     align-items: center;
     text-align: center;
 }
-.pagenotfound{
-    margin-top: 200px;
-    background-color: white;
-    width: fit-content;
-    display: flex;
-    padding: 30px;
-    border: 2px solid black;
-    border-radius: 10px;
-}

@@ -24,7 +24,8 @@ const CurrencyConversionResult = () => {
           })        
     }, [sourceCurrency, targetCurrency, amount])
     return !isLoading && conversionRate && conversionResult ?(
-        <>
+        <>  
+        {/* retrieve state by using useLocation */}
             <p>The exchange rate for {location.state.sourceCurrencyDetail} to {location.state.targetCurrencyDetail} is: {conversionRate}</p>
             <Divider variant="middle" />
             <p>{amount} {location.state.sourceCurrencyDetail} is equivalent to {conversionResult} {location.state.targetCurrencyDetail}</p>

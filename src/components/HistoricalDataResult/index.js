@@ -12,6 +12,8 @@ const HistoricalDataResult = () => {
     const {sourceHistorical, targetHistorical, dateHistorical} = useParams()
     const {results, setResults} = useState([])
     // const [isLoading, setIsLoading] = useState(false)
+
+    // convert data got from date picker to the requested format
     const date = new Date(dateHistorical)
     const formattedDate = date.getFullYear() + "-" + String((date.getMonth()+1)).padStart(2, '0') + "-" + String(date.getDate()).padStart(2, '0')
     
