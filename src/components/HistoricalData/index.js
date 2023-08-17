@@ -10,7 +10,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow'
 import HomeMenu from '../HomeMenu'
-// import './index.css'
+import './index.css'
 
 
 const HistoricalData = () => {
@@ -55,6 +55,7 @@ const HistoricalData = () => {
               <HomeMenu/>
             </Container> 
         <Container maxWidth='md' style={{ textAlign: 'center',position: "flex", justifyContent: "center", alignItems:"center"}}>
+        <div className='hisConverterDiv'>
             <h1>Historic Exchange Rate</h1>
             <p>Build a historic rate chart with your chosen base and target currencies</p>
             <form onSubmit={handleHistoricalSubmit}>
@@ -96,11 +97,12 @@ const HistoricalData = () => {
                     <LocalizationProvider dateAdapter={AdapterDayjs} required>
                        <DatePicker format="DD-MM-YYYY" onChange = {(newValue) => setDatehistorical(newValue)} label='From Date'/>
                        <DoubleArrowIcon />
-                       <DatePicker format="DD-MM-YYYY" label='From Date'/>
+                       <DatePicker format="DD-MM-YYYY" label='To Date'/>
                     </LocalizationProvider>
                 <Button type='submit' variant="outlined">Search</Button>
             </Stack>
             </form>
+            </div>
         </Container>
         <Outlet />
         </Container>

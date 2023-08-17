@@ -1,0 +1,17 @@
+/* StepCard.css */
+.step-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    position: relative;
+    display: inline-block; /* Display cards inline */
+    vertical-align: top; /* Align cards at the top */
+    min-width: 250px; /* Set minimum width for consistency */
+    box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.2); /* Adding a subtle shadow */
+    margin-top: 80px;
+    border: solid black;
+    border-radius: 5px;
+    height: 400px;
+    width: 310px;
+  }

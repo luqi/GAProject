@@ -1,0 +1,11 @@
+.hisConverterDiv{
+    background-color: rgb(235, 225, 211);
+    width: fit-content;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: solid black;
+    position:fixed;
+    left: 10%;
+    top: 80px;
+}
