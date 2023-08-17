@@ -8,6 +8,7 @@ import Button from '@mui/material/Button'
 import HomeMenu from '../HomeMenu'
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import './index.css'
+import Card from './card'
 
 const API_KEY = process.env.REACT_APP_Currency_Converter_API_KEY
 
@@ -55,10 +56,12 @@ const CurrencyConverter = () => {
 
     return (
       <div className='pageContainer'>
+        
         <Container maxWidth='md' style={{ textAlign: 'center',position: "flex", justifyContent: "center", alignItems:"center"}}>
             <Container maxWidth='md' sx={{ textAlign: 'center'}}>
               <HomeMenu />
             </Container>  
+            <div className='converterDiv'>
             <h1>Currency Converter</h1>
             <form onSubmit={handleConverstionSubmit}>
                 <Stack direction='row'
@@ -102,7 +105,22 @@ const CurrencyConverter = () => {
             </Stack>
             </form>
             <Outlet />
+            </div>
             </Container>
+            <h1>
+            How to transfer money in 3 easy steps
+            </h1>
+            <div className='card'>
+                <Card step= {0} backgroundColor="#F4A261" ></Card>
+                <Card step={1} backgroundColor="#F4A261"></Card>
+                <Card step={2} backgroundColor="#F4A261"></Card>
+            </div>
+
+            <button id='startButton'>
+              Get started
+            </button>
+          
+        
         </div>
     )
 

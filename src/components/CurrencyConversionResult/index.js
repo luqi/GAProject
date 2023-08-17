@@ -4,6 +4,7 @@ import CircularProgress from '@mui/material/CircularProgress'
 import Box from '@mui/material/Box'
 import Divider from '@mui/material/Divider'
 import { useLocation } from 'react-router-dom';
+import "./index.css"
 
 const API_KEY = process.env.REACT_APP_Currency_Converter_API_KEY
 
@@ -26,9 +27,11 @@ const CurrencyConversionResult = () => {
     return !isLoading && conversionRate && conversionResult ?(
         <>  
         {/* retrieve state by using useLocation */}
-            <p>The exchange rate for {location.state.sourceCurrencyDetail} to {location.state.targetCurrencyDetail} is: {conversionRate}</p>
+        <div className='resultDiv'>
+            <p id='p1result'>The exchange rate for {location.state.sourceCurrencyDetail} to {location.state.targetCurrencyDetail} is: {conversionRate}</p>
             <Divider variant="middle" />
-            <p>{amount} {location.state.sourceCurrencyDetail} is equivalent to {conversionResult} {location.state.targetCurrencyDetail}</p>
+            <p id='p1result'>{amount} {location.state.sourceCurrencyDetail} is equivalent to {conversionResult} {location.state.targetCurrencyDetail}</p>
+            </div>
         </>
     ):(
             <Box sx={{ display: 'flex' }}>
